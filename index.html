@@ -1,481 +1,173 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gabriel Adley Fernandes — Full-Stack Developer</title>
-<meta name="description" content="Full-stack developer who ships production software — from the business problem to the deploy. React, TypeScript, Python, Supabase." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
-<style>
-  :root{
-    --bg:#0a0e17; --bg2:#0e1422; --surface:#141b2d; --surface2:#19223a;
-    --border:#232c42; --border-hi:#33405e;
-    --text:#e8ecf5; --muted:#93a0b8; --faint:#6b7791;
-    --accent:#f97316; --accent2:#3fcf8e; --accent-soft:rgba(249,115,22,.12);
-    --radius:16px; --maxw:1040px;
-    --shadow:0 10px 40px -12px rgba(0,0,0,.6);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    font-family:'Manrope',system-ui,sans-serif;background:var(--bg);color:var(--text);
-    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
-  }
-  a{color:inherit;text-decoration:none}
-  code,.mono{font-family:'JetBrains Mono',monospace}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-  .accent{color:var(--accent)}
-  .accent2{color:var(--accent2)}
-
-  /* Header */
-  header{
-    position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
-    background:rgba(10,14,23,.72);border-bottom:1px solid var(--border);
-  }
-  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .logo{font-weight:800;font-size:1.05rem;letter-spacing:-.02em}
-  .logo .dot{color:var(--accent)}
-  .nav-links{display:flex;gap:28px;align-items:center}
-  .nav-links a{color:var(--muted);font-size:.92rem;font-weight:500;transition:color .2s}
-  .nav-links a:hover{color:var(--text)}
-  .lang-toggle{
-    display:flex;border:1px solid var(--border-hi);border-radius:999px;overflow:hidden;
-    font-size:.78rem;font-weight:600;cursor:pointer
-  }
-  .lang-toggle button{
-    background:transparent;border:0;color:var(--faint);padding:5px 11px;cursor:pointer;
-    font-family:inherit;font-weight:600;transition:all .2s
-  }
-  .lang-toggle button.on{background:var(--accent);color:#0a0e17}
-  @media(max-width:680px){.nav-links a:not(.lang-wrap){display:none}}
-
-  /* Hero */
-  .hero{position:relative;padding:96px 0 72px;overflow:hidden}
-  .hero::before{
-    content:"";position:absolute;top:-30%;left:50%;transform:translateX(-50%);
-    width:900px;height:600px;
-    background:radial-gradient(ellipse at center,rgba(249,115,22,.16),transparent 60%);
-    pointer-events:none;z-index:0
-  }
-  .hero .wrap{position:relative;z-index:1}
-  .badge-avail{
-    display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:600;
-    color:var(--accent2);background:rgba(63,207,142,.1);border:1px solid rgba(63,207,142,.25);
-    padding:6px 14px;border-radius:999px;margin-bottom:24px
-  }
-  .badge-avail .pulse{width:8px;height:8px;border-radius:50%;background:var(--accent2);box-shadow:0 0 0 0 rgba(63,207,142,.7);animation:pulse 2s infinite}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(63,207,142,.6)}70%{box-shadow:0 0 0 8px rgba(63,207,142,0)}100%{box-shadow:0 0 0 0 rgba(63,207,142,0)}}
-  h1{font-size:clamp(2.2rem,6vw,3.6rem);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin-bottom:20px}
-  .hero .sub{font-size:clamp(1.05rem,2.5vw,1.3rem);color:var(--muted);max-width:640px;margin-bottom:14px}
-  .hero .sub2{font-size:1rem;color:var(--faint);max-width:620px;margin-bottom:32px}
-  .cta-row{display:flex;flex-wrap:wrap;gap:14px}
-  .btn{
-    display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:.95rem;
-    padding:13px 22px;border-radius:12px;transition:transform .15s,box-shadow .2s,background .2s;border:1px solid transparent
-  }
-  .btn:hover{transform:translateY(-2px)}
-  .btn-primary{background:var(--accent);color:#0a0e17;box-shadow:0 8px 24px -8px rgba(249,115,22,.6)}
-  .btn-ghost{border-color:var(--border-hi);color:var(--text)}
-  .btn-ghost:hover{background:var(--surface);border-color:var(--accent)}
-
-  /* Stats band */
-  .stats{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg2)}
-  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
-  .stat{background:var(--bg2);padding:28px 20px;text-align:center}
-  .stat .num{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;color:var(--text);letter-spacing:-.02em}
-  .stat .lbl{font-size:.82rem;color:var(--faint);margin-top:4px}
-  @media(max-width:680px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
-
-  /* Sections */
-  section{padding:80px 0}
-  .eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
-  h2{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;letter-spacing:-.02em;margin-bottom:18px}
-  .lead{color:var(--muted);font-size:1.08rem;max-width:680px}
-
-  /* About */
-  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:start}
-  .about p{color:var(--muted);margin-bottom:16px;font-size:1.05rem}
-  .about strong{color:var(--text);font-weight:700}
-  .highlight-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px}
-  .highlight-card h3{font-size:.85rem;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin-bottom:16px;font-weight:700}
-  .highlight-card ul{list-style:none}
-  .highlight-card li{display:flex;gap:12px;padding:9px 0;color:var(--muted);font-size:.96rem;border-bottom:1px solid var(--border)}
-  .highlight-card li:last-child{border-bottom:0}
-  .highlight-card li .ic{color:var(--accent2);flex-shrink:0}
-  @media(max-width:760px){.about-grid{grid-template-columns:1fr;gap:32px}}
-
-  /* Projects */
-  .projects{background:var(--bg2)}
-  .proj-grid{display:flex;flex-direction:column;gap:28px;margin-top:40px}
-  .card{
-    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
-    overflow:hidden;transition:border-color .25s,transform .25s,box-shadow .25s
-  }
-  .card:hover{border-color:var(--border-hi);transform:translateY(-3px);box-shadow:var(--shadow)}
-  .card-inner{display:grid;grid-template-columns:200px 1fr;gap:0}
-  .card-visual{
-    background:linear-gradient(145deg,var(--surface2),#0c1322);display:flex;align-items:center;justify-content:center;
-    font-size:3.6rem;border-right:1px solid var(--border);position:relative
-  }
-  .card-visual .tag{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-size:.72rem;color:var(--faint);font-weight:600;letter-spacing:.05em}
-  .card-body{padding:28px 30px}
-  .card-head{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:6px}
-  .card-head h3{font-size:1.35rem;font-weight:800;letter-spacing:-.01em}
-  .pill{font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent);border:1px solid rgba(249,115,22,.25)}
-  .pill.live{background:rgba(63,207,142,.1);color:var(--accent2);border-color:rgba(63,207,142,.25)}
-  .card-tagline{color:var(--muted);font-size:1rem;margin-bottom:18px}
-  .feat{list-style:none;margin-bottom:18px}
-  .feat li{display:flex;gap:10px;padding:5px 0;color:var(--muted);font-size:.94rem}
-  .feat li::before{content:"▸";color:var(--accent);font-weight:700}
-  .stack{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
-  .chip{font-size:.78rem;font-family:'JetBrains Mono',monospace;color:var(--muted);background:var(--bg2);border:1px solid var(--border);padding:4px 10px;border-radius:8px}
-  .card-links{display:flex;gap:18px;flex-wrap:wrap}
-  .card-links a{font-size:.88rem;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:6px}
-  .card-links a:hover{text-decoration:underline}
-  .card-links a.muted{color:var(--faint)}
-  @media(max-width:760px){.card-inner{grid-template-columns:1fr}.card-visual{height:120px;border-right:0;border-bottom:1px solid var(--border)}}
-
-  /* Stack */
-  .stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
-  .stack-col{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px}
-  .stack-col h3{font-size:.85rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:18px;font-weight:700}
-  .stack-col .item{display:flex;align-items:center;gap:10px;padding:7px 0;color:var(--muted);font-size:.96rem}
-  .stack-col .item b{color:var(--text);font-weight:600}
-  @media(max-width:760px){.stack-grid{grid-template-columns:1fr}}
-
-  /* Contact */
-  .contact{text-align:center}
-  .contact h2{margin-bottom:14px}
-  .contact .lead{margin:0 auto 32px}
-  .contact-row{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
-
-  footer{border-top:1px solid var(--border);padding:32px 0;text-align:center;color:var(--faint);font-size:.85rem}
-
-  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
-</style>
+<meta name="description" content="Full-stack developer who builds production software for real businesses, including a company-wide ERP. React, TypeScript, PostgreSQL, Supabase, Python.">
+<meta property="og:title" content="Gabriel Adley Fernandes — Full-Stack Developer">
+<meta property="og:description" content="Four systems in production, including a company-wide ERP with 15+ modules.">
+<meta property="og:image" content="https://sharkvlr.github.io/assets/shots/erp-home.webp">
+<script>try{document.documentElement.setAttribute('data-lang',localStorage.getItem('lang')||'en')}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
 <header>
   <div class="wrap nav">
-    <div class="logo">Gabriel Adley Fernandes<span class="dot">.</span></div>
+    <a href="#" class="logo"><span class="mark">GA</span>Gabriel Adley</a>
     <nav class="nav-links">
-      <a href="#about" data-i18n="nav.about">About</a>
-      <a href="#projects" data-i18n="nav.projects">Projects</a>
-      <a href="#stack" data-i18n="nav.stack">Stack</a>
-      <a href="#contact" data-i18n="nav.contact">Contact</a>
-      <span class="lang-wrap"><span class="lang-toggle">
-        <button data-lang="en" class="on">EN</button>
-        <button data-lang="pt">PT</button>
-      </span></span>
+      <a href="#work"><span data-l="en">Work</span><span data-l="pt">Projetos</span></a>
+      <a href="#journey"><span data-l="en">Journey</span><span data-l="pt">Trajetória</span></a>
+      <a href="#about"><span data-l="en">About</span><span data-l="pt">Sobre</span></a>
+      <a href="#contact"><span data-l="en">Contact</span><span data-l="pt">Contato</span></a>
+      <span class="lang"><button data-lang="en">EN</button><button data-lang="pt">PT</button></span>
     </nav>
   </div>
 </header>
 
 <main>
-  <!-- HERO -->
   <section class="hero">
     <div class="wrap">
-      <span class="badge-avail"><span class="pulse"></span><span data-i18n="hero.avail">Open to full-stack roles & freelance</span></span>
-      <h1 data-i18n="hero.title">I build production software that solves real business problems.</h1>
-      <p class="sub" data-i18n="hero.sub">Full-stack developer and operations manager. I shipped 3 systems running in real companies — solo, from the problem to the deploy.</p>
-      <p class="sub2 mono" data-i18n="hero.stack">React · TypeScript · Python · Supabase · PostgreSQL</p>
-      <div class="cta-row">
-        <a href="#projects" class="btn btn-primary" data-i18n="hero.cta1">View projects →</a>
-        <a href="https://github.com/Sharkvlr" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
-        <a href="https://www.linkedin.com/in/gabriel-fernandes-971392264/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+      <span class="status"><i></i><span data-l="en">Open to full-stack roles &amp; freelance</span><span data-l="pt">Disponível para vagas full-stack e freelance</span></span>
+      <h1 data-l="en">I build the software <em>a whole company runs on.</em></h1>
+      <h1 data-l="pt">Eu construo o software <em>que faz uma empresa inteira rodar.</em></h1>
+      <p class="sub" data-l="en">Full-stack developer from São Luís, Brazil. I designed, built and maintain four production systems, including an ERP used every day by finance, HR, sales, field teams and the board.</p>
+      <p class="sub" data-l="pt">Desenvolvedor full-stack de São Luís. Projetei, construí e mantenho quatro sistemas em produção, incluindo um ERP usado todo dia por financeiro, RH, comercial, equipes de campo e diretoria.</p>
+      <div class="cta">
+        <a href="#work" class="btn primary"><span data-l="en">See the work →</span><span data-l="pt">Ver projetos →</span></a>
+        <a href="https://github.com/Sharkvlr" target="_blank" rel="noopener" class="btn ghost">GitHub</a>
+        <a href="https://www.linkedin.com/in/gabriel-adley-fernandes-971392264/" target="_blank" rel="noopener" class="btn ghost">LinkedIn</a>
       </div>
     </div>
   </section>
 
-  <!-- STATS -->
-  <div class="stats">
+  <section id="work" style="padding-top:24px">
     <div class="wrap">
-      <div class="stats-grid">
-        <div class="stat"><div class="num">3</div><div class="lbl" data-i18n="stat.systems">systems in production</div></div>
-        <div class="stat"><div class="num">16k+</div><div class="lbl" data-i18n="stat.lines">lines of Python shipped</div></div>
-        <div class="stat"><div class="num">30</div><div class="lbl" data-i18n="stat.migrations">database migrations</div></div>
-        <div class="stat"><div class="num">100%</div><div class="lbl" data-i18n="stat.solo">built solo</div></div>
+      <div class="eyebrow"><span data-l="en">Selected work</span><span data-l="pt">Projetos</span></div>
+      <h2 data-l="en">Four systems, all in production.</h2>
+      <h2 data-l="pt">Quatro sistemas, todos em produção.</h2>
+      <p class="lead" data-l="en">Real software used by real people every day, not demos. Click any project to read the full case study.</p>
+      <p class="lead" data-l="pt">Software de verdade, usado todo dia por pessoas reais, não demos. Clique num projeto para ler o estudo de caso completo.</p>
+
+      <div class="bento">
+        <a href="erp/" class="tile flag s8 r2 rv">
+          <span class="tag live">● <span data-l="en">In production · Flagship</span><span data-l="pt">Em produção · Principal</span></span>
+          <h3>Alphatherm ERP</h3>
+          <p data-l="en">A company-wide ERP with 15+ modules: finance, payroll, sales, inventory, construction projects and more.</p>
+          <p data-l="pt">ERP corporativo com 15+ módulos: financeiro, folha, comercial, estoque, obras e mais.</p>
+          <span class="go"><span data-l="en">Read case study</span><span data-l="pt">Ler estudo de caso</span> →</span>
+          <div class="shot"><div class="chrome"><i></i><i></i><i></i></div><img src="assets/shots/erp-home.webp" alt="ERP home dashboard with sample data" loading="lazy"></div>
+        </a>
+
+        <div class="tile stat s4 rv">
+          <div class="num"><span data-count="4300">0</span><b>+</b></div>
+          <div class="lbl"><span data-l="en">commits shipped to the ERP in under six months</span><span data-l="pt">commits entregues no ERP em menos de seis meses</span></div>
+        </div>
+        <div class="tile stat s4 rv">
+          <div class="num">~<span data-count="9000">0</span></div>
+          <div class="lbl"><span data-l="en">automated tests, including database tests for every access rule</span><span data-l="pt">testes automatizados, incluindo testes de banco para as regras de acesso</span></div>
+        </div>
+
+        <a href="atendimento/" class="tile s4 r2 rv" style="padding-bottom:0;display:flex;flex-direction:column">
+          <span class="tag live">● <span data-l="en">In production</span><span data-l="pt">Em produção</span></span>
+          <h3>Alphatherm Atendimento</h3>
+          <p data-l="en">Offline-first PWA for field technicians: service orders, photos, signatures and PDF reports.</p>
+          <p data-l="pt">PWA offline-first para técnicos de campo: ordens de serviço, fotos, assinatura e relatório em PDF.</p>
+          <span class="go"><span data-l="en">Read case study</span><span data-l="pt">Ler estudo de caso</span> →</span>
+          <div class="phone" style="margin-top:auto"><img src="assets/shots/atend-mobile.webp" alt="Field-service app on a phone with sample data" loading="lazy"></div>
+        </a>
+
+        <a href="alphaneo/" class="tile flag s4 rv">
+          <span class="tag">RPA · v1.0.12</span>
+          <h3>Alphaneo</h3>
+          <p data-l="en">Self-updating bot that bulk-closes work orders in a third-party web system.</p>
+          <p data-l="pt">Robô que se atualiza sozinho e dá baixa em lote em ordens de serviço num sistema web de terceiros.</p>
+          <span class="go"><span data-l="en">Read case study</span><span data-l="pt">Ler estudo de caso</span> →</span>
+          <div class="shot"><div class="chrome"><i></i><i></i><i></i></div><img src="assets/shots/alphaneo.webp" alt="Alphaneo interface (sample data)" loading="lazy"></div>
+        </a>
+        <a href="alphatasker/" class="tile flag s4 rv">
+          <span class="tag">RPA · v0.3.8</span>
+          <h3>Alphatasker</h3>
+          <p data-l="en">Bot that creates dozens of work orders in one run, with scheduling rules.</p>
+          <p data-l="pt">Robô que abre dezenas de ordens de serviço de uma vez, com regras de horário.</p>
+          <span class="go"><span data-l="en">Read case study</span><span data-l="pt">Ler estudo de caso</span> →</span>
+          <div class="shot"><div class="chrome"><i></i><i></i><i></i></div><img src="assets/shots/alphatasker.webp" alt="Alphatasker interface (sample data)" loading="lazy"></div>
+        </a>
+
+        <div class="tile stat s4 rv">
+          <div class="num"><span data-count="900">0</span><b>+</b></div>
+          <div class="lbl"><span data-l="en">database migrations</span><span data-l="pt">migrations de banco</span></div>
+        </div>
+        <div class="tile stat s4 rv">
+          <div class="num"><span data-count="80">0</span><b>+</b></div>
+          <div class="lbl"><span data-l="en">serverless functions</span><span data-l="pt">funções serverless</span></div>
+        </div>
+        <div class="tile s12 rv">
+          <h3 data-l="en">Tech I build with</h3><h3 data-l="pt">Tecnologias que uso</h3>
+          <div class="chips">
+            <span class="chip">React 19</span><span class="chip">TypeScript</span><span class="chip">PostgreSQL</span><span class="chip">Supabase</span><span class="chip">Deno</span><span class="chip">Python</span><span class="chip">Selenium</span><span class="chip">Tailwind</span><span class="chip">Vite</span><span class="chip">Vitest</span><span class="chip">PWA</span><span class="chip">Vercel</span>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- ABOUT -->
+  <section id="journey">
+    <div class="wrap">
+      <div class="eyebrow"><span data-l="en">Journey</span><span data-l="pt">Trajetória</span></div>
+      <h2 data-l="en">From one bot to a whole ERP.</h2>
+      <h2 data-l="pt">De um robô a um ERP inteiro.</h2>
+      <div class="tl">
+        <div class="tl-item rv"><div class="when">2025</div><div><h4 data-l="en">First automation: Alphaneo</h4><h4 data-l="pt">Primeira automação: Alphaneo</h4><p data-l="en">A Python bot that ends a daily manual chore: closing work orders one by one in a web system.</p><p data-l="pt">Um robô em Python que acaba com uma tarefa manual diária: dar baixa em ordens de serviço uma a uma num sistema web.</p></div></div>
+        <div class="tl-item rv"><div class="when">MAY 2026</div><div><h4 data-l="en">Alphatasker and Alphatherm Atendimento</h4><h4 data-l="pt">Alphatasker e Alphatherm Atendimento</h4><p data-l="en">A second bot for bulk order creation, and an offline-first PWA that replaced forms, spreadsheets and Word for the field team.</p><p data-l="pt">Um segundo robô para abrir ordens em lote, e um PWA offline-first que substituiu formulários, planilhas e Word para a equipe de campo.</p></div></div>
+        <div class="tl-item rv"><div class="when">JUN 2026</div><div><h4 data-l="en">The ERP starts</h4><h4 data-l="pt">Começa o ERP</h4><p data-l="en">Inventory first, then HR and payroll, then finance. The field app is merged in as a module.</p><p data-l="pt">Primeiro o estoque, depois RH e folha, depois o financeiro. O app de campo vira um módulo.</p></div></div>
+        <div class="tl-item rv"><div class="when">NOW</div><div><h4 data-l="en">15+ modules, used by the whole company</h4><h4 data-l="pt">15+ módulos, usados pela empresa inteira</h4><p data-l="en">Finance, tax, sales, projects, maintenance and meetings, with 4,300+ commits and still shipping every week.</p><p data-l="pt">Financeiro, fiscal, comercial, obras, manutenção e reuniões, com 4.300+ commits e entregas toda semana.</p></div></div>
+      </div>
+    </div>
+  </section>
+
   <section id="about">
-    <div class="wrap about-grid">
-      <div class="about">
-        <div class="eyebrow" data-i18n="about.eyebrow">About</div>
-        <h2 data-i18n="about.title">The manager who builds the tool.</h2>
-        <p data-i18n="about.p1">I'm a managing director of HVAC and technical-services companies in São Luís, Brazil. When our operation hit problems that software could solve, I didn't wait for a vendor — I learned to build it myself, and shipped.</p>
-        <p data-i18n="about.p2">I don't receive a finished spec. I <strong>live the business problem</strong>, model the solution, write the code, and keep it running in production. That blend of business ownership and hands-on engineering is rare — and it's what I bring to a team or a client.</p>
-        <p data-i18n="about.p3">Next up: a custom ERP, starting with the fiscal / e-invoicing (NF-e) module.</p>
+    <div class="wrap about">
+      <div>
+        <div class="eyebrow"><span data-l="en">About</span><span data-l="pt">Sobre</span></div>
+        <h2 data-l="en">The developer who lives the business problem.</h2>
+        <h2 data-l="pt">O desenvolvedor que vive o problema de negócio.</h2>
+        <p data-l="en">I work at an HVAC engineering group in São Luís, Brazil. When our operation hit problems that software could solve, I didn't wait for a vendor. I built the tools myself and put them in production.</p>
+        <p data-l="pt">Trabalho num grupo de engenharia de climatização em São Luís. Quando a operação esbarrou em problemas que software resolveria, não esperei um fornecedor: construí as ferramentas e coloquei em produção.</p>
+        <p data-l="en">I don't receive a finished spec. I <strong>live the problem</strong>, model the data, write the code and support the people who use it every day.</p>
+        <p data-l="pt">Eu não recebo um requisito pronto. Eu <strong>vivo o problema</strong>, modelo os dados, escrevo o código e dou suporte a quem usa todo dia.</p>
       </div>
-      <div class="highlight-card">
-        <h3 data-i18n="about.h3">What I do end-to-end</h3>
-        <ul>
-          <li><span class="ic">◆</span><span data-i18n="about.l1">Product & UX from a real-world problem</span></li>
-          <li><span class="ic">◆</span><span data-i18n="about.l2">Database modeling (PostgreSQL, RLS)</span></li>
-          <li><span class="ic">◆</span><span data-i18n="about.l3">Frontend (React, TypeScript, PWA)</span></li>
-          <li><span class="ic">◆</span><span data-i18n="about.l4">Automation & RPA (Python, Selenium)</span></li>
-          <li><span class="ic">◆</span><span data-i18n="about.l5">Build, release & auto-update pipelines</span></li>
-          <li><span class="ic">◆</span><span data-i18n="about.l6">Deploy & production maintenance</span></li>
-        </ul>
-      </div>
+      <ul class="list rv">
+        <li><span>◆</span><span data-l="en">Product &amp; UX from a real-world problem</span><span data-l="pt">Produto e UX a partir de um problema real</span></li>
+        <li><span>◆</span><span data-l="en">Database design, SQL &amp; Row-Level Security</span><span data-l="pt">Modelagem de banco, SQL e Row-Level Security</span></li>
+        <li><span>◆</span><span data-l="en">Frontend: React, TypeScript, PWA</span><span data-l="pt">Front-end: React, TypeScript, PWA</span></li>
+        <li><span>◆</span><span data-l="en">Serverless APIs &amp; integrations</span><span data-l="pt">APIs serverless e integrações</span></li>
+        <li><span>◆</span><span data-l="en">Automation &amp; RPA with Python</span><span data-l="pt">Automação e RPA com Python</span></li>
+        <li><span>◆</span><span data-l="en">Testing, deploy &amp; production support</span><span data-l="pt">Testes, deploy e suporte em produção</span></li>
+      </ul>
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="projects">
-    <div class="wrap">
-      <div class="eyebrow" data-i18n="proj.eyebrow">Selected work</div>
-      <h2 data-i18n="proj.title">Three systems, in production.</h2>
-      <p class="lead" data-i18n="proj.lead">Real software running in real companies — not demos. Each one designed, built, and maintained solo.</p>
-
-      <div class="proj-grid">
-
-        <!-- Atendimento -->
-        <article class="card">
-          <div class="card-inner">
-            <div class="card-visual">📱<div class="tag">PWA · React</div></div>
-            <div class="card-body">
-              <div class="card-head">
-                <h3>Alphatherm Atendimento</h3>
-                <span class="pill live" data-i18n="proj.badge.prod">In production</span>
-              </div>
-              <p class="card-tagline" data-i18n="proj.a.tag">Mobile-first PWA for field-service management.</p>
-              <ul class="feat">
-                <li data-i18n="proj.a.f1">Replaced a Jotform + 3,733-row Excel + Word workflow with one app</li>
-                <li data-i18n="proj.a.f2">Offline-first field capture with a sync queue that reconciles on reconnect</li>
-                <li data-i18n="proj.a.f3">Role-based access (Technician / Director / Admin) enforced in the DB via RLS</li>
-                <li data-i18n="proj.a.f4">5-state approval workflow, proposal generator, client-side PDF export</li>
-              </ul>
-              <div class="stack">
-                <span class="chip">React 18</span><span class="chip">TypeScript</span><span class="chip">Supabase</span><span class="chip">PostgreSQL</span><span class="chip">Tailwind</span><span class="chip">Vite · PWA</span>
-              </div>
-              <div class="card-links">
-                <a href="https://github.com/Sharkvlr/alphatherm-atendimento" target="_blank" rel="noopener">View code ↗</a>
-                <a class="muted" href="#" data-i18n="proj.demo">▶ Demo (add link)</a>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Alphaneo -->
-        <article class="card">
-          <div class="card-inner">
-            <div class="card-visual">🤖<div class="tag">RPA · Python</div></div>
-            <div class="card-body">
-              <div class="card-head">
-                <h3>Alphaneo</h3>
-                <span class="pill">v1.0.3</span>
-              </div>
-              <p class="card-tagline" data-i18n="proj.n.tag">Self-updating RPA bot that auto-closes service orders in a legacy system.</p>
-              <ul class="feat">
-                <li data-i18n="proj.n.f1">5 automation modes with intelligent per-order field mapping</li>
-                <li data-i18n="proj.n.f2">Self-updates via the GitHub Releases API with a silent installer</li>
-                <li data-i18n="proj.n.f3">~1,000 guarded operations and cached browser-detection for unattended runs</li>
-                <li data-i18n="proj.n.f4">8-stage build pipeline; private source, public signed release</li>
-              </ul>
-              <div class="stack">
-                <span class="chip">Python</span><span class="chip">Selenium 4</span><span class="chip">Tkinter</span><span class="chip">PyInstaller</span><span class="chip">Inno Setup</span>
-              </div>
-              <div class="card-links">
-                <a href="https://github.com/Sharkvlr/alphaneo" target="_blank" rel="noopener">View project ↗</a>
-                <span class="card-links muted mono" style="color:var(--faint)">9,450 lines</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Alphatasker -->
-        <article class="card">
-          <div class="card-inner">
-            <div class="card-visual">⚙️<div class="tag">RPA · Python</div></div>
-            <div class="card-body">
-              <div class="card-head">
-                <h3>Alphatasker</h3>
-                <span class="pill">v0.2.15</span>
-              </div>
-              <p class="card-tagline" data-i18n="proj.t.tag">Bulk RPA bot for batch service-order creation, with smart scheduling.</p>
-              <ul class="feat">
-                <li data-i18n="proj.t.f1">Type-aware scheduling spaces start times automatically by order type</li>
-                <li data-i18n="proj.t.f2">Fuzzy, accent-insensitive search over a 584-sector database</li>
-                <li data-i18n="proj.t.f3">Real-time monitor with pause / stop control under 300 ms</li>
-                <li data-i18n="proj.t.f4">Cross-browser fallback (Edge → Chrome) with auto driver management</li>
-              </ul>
-              <div class="stack">
-                <span class="chip">Python</span><span class="chip">Selenium 4</span><span class="chip">Tkinter</span><span class="chip">webdriver-manager</span>
-              </div>
-              <div class="card-links">
-                <a href="https://github.com/Sharkvlr/alphatasker" target="_blank" rel="noopener">View project ↗</a>
-                <span class="mono" style="color:var(--faint);font-size:.88rem">6,993 lines</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- STACK -->
-  <section id="stack">
-    <div class="wrap">
-      <div class="eyebrow" data-i18n="stack.eyebrow">Toolbox</div>
-      <h2 data-i18n="stack.title">Tech I build with.</h2>
-      <div class="stack-grid">
-        <div class="stack-col">
-          <h3>Frontend</h3>
-          <div class="item"><b>React 18</b></div>
-          <div class="item"><b>TypeScript</b></div>
-          <div class="item"><b>Tailwind</b> · shadcn/ui</div>
-          <div class="item"><b>PWA</b> · offline-first</div>
-          <div class="item"><b>Vite</b></div>
-        </div>
-        <div class="stack-col">
-          <h3>Backend &amp; Data</h3>
-          <div class="item"><b>Python</b></div>
-          <div class="item"><b>Node.js</b></div>
-          <div class="item"><b>Supabase</b></div>
-          <div class="item"><b>PostgreSQL</b> · RLS</div>
-          <div class="item"><b>REST APIs</b></div>
-        </div>
-        <div class="stack-col">
-          <h3 data-i18n="stack.col3">Automation &amp; Tooling</h3>
-          <div class="item"><b>Selenium</b> · RPA</div>
-          <div class="item"><b>Git</b> &amp; GitHub</div>
-          <div class="item"><b>PyInstaller</b> · Inno Setup</div>
-          <div class="item"><b>CI/CD</b> <span data-i18n="stack.cicd">release pipelines</span></div>
-          <div class="item"><b>Vercel</b></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
   <section id="contact" class="contact">
     <div class="wrap">
-      <div class="eyebrow" data-i18n="contact.eyebrow">Get in touch</div>
-      <h2 data-i18n="contact.title">Let's build something.</h2>
-      <p class="lead" data-i18n="contact.lead">Open to full-stack roles (remote-friendly) and freelance projects. I reply fast.</p>
-      <div class="contact-row">
-        <a href="mailto:gabrieladley45@gmail.com" class="btn btn-primary" data-i18n="contact.email">Email me</a>
-        <a href="https://www.linkedin.com/in/gabriel-fernandes-971392264/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
-        <a href="https://github.com/Sharkvlr" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+      <div class="eyebrow"><span data-l="en">Get in touch</span><span data-l="pt">Fale comigo</span></div>
+      <h2 data-l="en">Let's build something.</h2><h2 data-l="pt">Vamos construir algo.</h2>
+      <p class="lead" data-l="en">Open to full-stack roles (remote-friendly) and freelance projects. I reply fast.</p>
+      <p class="lead" data-l="pt">Disponível para vagas full-stack (remoto) e projetos freelance. Respondo rápido.</p>
+      <div class="cta">
+        <a href="mailto:gabrieladley45@gmail.com" class="btn primary"><span data-l="en">Email me</span><span data-l="pt">Me mande um e-mail</span></a>
+        <a href="https://www.linkedin.com/in/gabriel-adley-fernandes-971392264/" target="_blank" rel="noopener" class="btn ghost">LinkedIn</a>
+        <a href="https://github.com/Sharkvlr" target="_blank" rel="noopener" class="btn ghost">GitHub</a>
       </div>
     </div>
   </section>
 </main>
 
-<footer>
-  <div class="wrap">
-    <p>© 2026 Gabriel Adley Fernandes · <span data-i18n="footer.loc">São Luís, Brazil</span> · <span class="mono">built from scratch</span></p>
-  </div>
-</footer>
-
-<script>
-  const I18N = {
-    en: {
-      "nav.about":"About","nav.projects":"Projects","nav.stack":"Stack","nav.contact":"Contact",
-      "hero.avail":"Open to full-stack roles & freelance",
-      "hero.title":"I build production software that solves real business problems.",
-      "hero.sub":"Full-stack developer and operations manager. I shipped 3 systems running in real companies — solo, from the problem to the deploy.",
-      "hero.stack":"React · TypeScript · Python · Supabase · PostgreSQL",
-      "hero.cta1":"View projects →",
-      "stat.systems":"systems in production","stat.lines":"lines of Python shipped","stat.migrations":"database migrations","stat.solo":"built solo",
-      "about.eyebrow":"About","about.title":"The manager who builds the tool.",
-      "about.p1":"I'm a managing director of HVAC and technical-services companies in São Luís, Brazil. When our operation hit problems that software could solve, I didn't wait for a vendor — I learned to build it myself, and shipped.",
-      "about.p2":"I don't receive a finished spec. I <strong>live the business problem</strong>, model the solution, write the code, and keep it running in production. That blend of business ownership and hands-on engineering is rare — and it's what I bring to a team or a client.",
-      "about.p3":"Next up: a custom ERP, starting with the fiscal / e-invoicing (NF-e) module.",
-      "about.h3":"What I do end-to-end",
-      "about.l1":"Product & UX from a real-world problem","about.l2":"Database modeling (PostgreSQL, RLS)","about.l3":"Frontend (React, TypeScript, PWA)","about.l4":"Automation & RPA (Python, Selenium)","about.l5":"Build, release & auto-update pipelines","about.l6":"Deploy & production maintenance",
-      "proj.eyebrow":"Selected work","proj.title":"Three systems, in production.",
-      "proj.lead":"Real software running in real companies — not demos. Each one designed, built, and maintained solo.",
-      "proj.badge.prod":"In production","proj.demo":"▶ Demo (add link)",
-      "proj.a.tag":"Mobile-first PWA for field-service management.",
-      "proj.a.f1":"Replaced a Jotform + 3,733-row Excel + Word workflow with one app",
-      "proj.a.f2":"Offline-first field capture with a sync queue that reconciles on reconnect",
-      "proj.a.f3":"Role-based access (Technician / Director / Admin) enforced in the DB via RLS",
-      "proj.a.f4":"5-state approval workflow, proposal generator, client-side PDF export",
-      "proj.n.tag":"Self-updating RPA bot that auto-closes service orders in a legacy system.",
-      "proj.n.f1":"5 automation modes with intelligent per-order field mapping",
-      "proj.n.f2":"Self-updates via the GitHub Releases API with a silent installer",
-      "proj.n.f3":"~1,000 guarded operations and cached browser-detection for unattended runs",
-      "proj.n.f4":"8-stage build pipeline; private source, public signed release",
-      "proj.t.tag":"Bulk RPA bot for batch service-order creation, with smart scheduling.",
-      "proj.t.f1":"Type-aware scheduling spaces start times automatically by order type",
-      "proj.t.f2":"Fuzzy, accent-insensitive search over a 584-sector database",
-      "proj.t.f3":"Real-time monitor with pause / stop control under 300 ms",
-      "proj.t.f4":"Cross-browser fallback (Edge → Chrome) with auto driver management",
-      "stack.eyebrow":"Toolbox","stack.title":"Tech I build with.","stack.col3":"Automation & Tooling","stack.cicd":"release pipelines",
-      "contact.eyebrow":"Get in touch","contact.title":"Let's build something.",
-      "contact.lead":"Open to full-stack roles (remote-friendly) and freelance projects. I reply fast.",
-      "contact.email":"Email me","footer.loc":"São Luís, Brazil"
-    },
-    pt: {
-      "nav.about":"Sobre","nav.projects":"Projetos","nav.stack":"Stack","nav.contact":"Contato",
-      "hero.avail":"Disponível para vagas full-stack e freelance",
-      "hero.title":"Eu construo software em produção que resolve problemas reais de negócio.",
-      "hero.sub":"Desenvolvedor full-stack e gestor de operações. Coloquei 3 sistemas rodando em empresas reais — sozinho, do problema ao deploy.",
-      "hero.stack":"React · TypeScript · Python · Supabase · PostgreSQL",
-      "hero.cta1":"Ver projetos →",
-      "stat.systems":"sistemas em produção","stat.lines":"linhas de Python entregues","stat.migrations":"migrations de banco","stat.solo":"feito sozinho",
-      "about.eyebrow":"Sobre","about.title":"O gestor que constrói a ferramenta.",
-      "about.p1":"Sou gestor de empresas de HVAC e serviços técnicos em São Luís, Brasil. Quando a operação esbarrou em problemas que software resolveria, não esperei um fornecedor — aprendi a construir e coloquei no ar.",
-      "about.p2":"Eu não recebo um requisito pronto. Eu <strong>vivo o problema de negócio</strong>, modelo a solução, escrevo o código e o mantenho em produção. Essa mistura de visão de dono com engenharia mão na massa é rara — e é o que eu entrego para um time ou cliente.",
-      "about.p3":"Próximo passo: um ERP próprio, começando pelo módulo fiscal / NF-e.",
-      "about.h3":"O que faço de ponta a ponta",
-      "about.l1":"Produto & UX a partir de um problema real","about.l2":"Modelagem de banco (PostgreSQL, RLS)","about.l3":"Frontend (React, TypeScript, PWA)","about.l4":"Automação & RPA (Python, Selenium)","about.l5":"Pipelines de build, release e auto-update","about.l6":"Deploy & manutenção em produção",
-      "proj.eyebrow":"Trabalhos selecionados","proj.title":"Três sistemas, em produção.",
-      "proj.lead":"Software de verdade rodando em empresas reais — não são demos. Cada um projetado, construído e mantido sozinho.",
-      "proj.badge.prod":"Em produção","proj.demo":"▶ Demo (adicionar link)",
-      "proj.a.tag":"PWA mobile-first para gestão de ordens de serviço em campo.",
-      "proj.a.f1":"Substituiu um fluxo de Jotform + Excel de 3.733 linhas + Word por um único app",
-      "proj.a.f2":"Captura offline em campo com fila de sincronização que reconcilia ao reconectar",
-      "proj.a.f3":"Acesso por papel (Técnico / Diretor / Admin) garantido no banco via RLS",
-      "proj.a.f4":"Workflow de aprovação de 5 estados, gerador de propostas, exportação de PDF no cliente",
-      "proj.n.tag":"Robô RPA auto-atualizável que dá baixa em ordens de serviço num sistema legado.",
-      "proj.n.f1":"5 modos de automação com mapeamento inteligente de campos por OS",
-      "proj.n.f2":"Auto-atualiza via API de Releases do GitHub com instalador silencioso",
-      "proj.n.f3":"~1.000 operações protegidas e detecção de browser em cache para execução autônoma",
-      "proj.n.f4":"Pipeline de build de 8 estágios; código privado, release público assinado",
-      "proj.t.tag":"Robô RPA de abertura de ordens em lote, com agendamento inteligente.",
-      "proj.t.f1":"Agendamento por tipo espaça os horários de início automaticamente",
-      "proj.t.f2":"Busca fuzzy, insensível a acento, sobre um banco de 584 setores",
-      "proj.t.f3":"Monitor em tempo real com pausar / parar em menos de 300 ms",
-      "proj.t.f4":"Fallback cross-browser (Edge → Chrome) com gestão automática de driver",
-      "stack.eyebrow":"Ferramentas","stack.title":"Tecnologias que uso.","stack.col3":"Automação & Tooling","stack.cicd":"pipelines de release",
-      "contact.eyebrow":"Fale comigo","contact.title":"Vamos construir algo.",
-      "contact.lead":"Disponível para vagas full-stack (remoto) e projetos freelance. Respondo rápido.",
-      "contact.email":"Me mande um email","footer.loc":"São Luís, Brasil"
-    }
-  };
-
-  function setLang(lang){
-    document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
-    document.querySelectorAll('[data-i18n]').forEach(function(el){
-      var k = el.getAttribute('data-i18n');
-      var v = I18N[lang] && I18N[lang][k];
-      if(v !== undefined) el.innerHTML = v;
-    });
-    document.querySelectorAll('.lang-toggle button').forEach(function(b){
-      b.classList.toggle('on', b.getAttribute('data-lang') === lang);
-    });
-    try{ localStorage.setItem('lang', lang); }catch(e){}
-  }
-
-  document.querySelectorAll('.lang-toggle button').forEach(function(b){
-    b.addEventListener('click', function(){ setLang(b.getAttribute('data-lang')); });
-  });
-
-  (function(){
-    var saved;
-    try{ saved = localStorage.getItem('lang'); }catch(e){}
-    var initial = saved || ((navigator.language||'en').toLowerCase().indexOf('pt')===0 ? 'pt' : 'en');
-    setLang(initial);
-  })();
-</script>
+<footer><div class="wrap">© 2026 Gabriel Adley Fernandes · <span data-l="en">São Luís, Brazil</span><span data-l="pt">São Luís, Brasil</span> · <span class="mono">built from scratch</span></div></footer>
+<script src="assets/site.js"></script>
 </body>
 </html>

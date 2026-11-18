@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alphaneo — Case study · Gabriel Adley Fernandes</title>
+<meta name="description" content="Case study: a self-updating Python RPA bot that bulk-closes work orders.">
+<script>try{document.documentElement.setAttribute('data-lang',localStorage.getItem('lang')||'en')}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><span class="mark">GA</span>Gabriel Adley</a>
+    <nav class="nav-links">
+      <a href="../#work"><span data-l="en">Work</span><span data-l="pt">Projetos</span></a>
+      <a href="../#contact"><span data-l="en">Contact</span><span data-l="pt">Contato</span></a>
+      <span class="lang"><button data-lang="en">EN</button><button data-lang="pt">PT</button></span>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="cs-hero">
+    <div class="wrap">
+      <a href="../#work" class="back">← <span data-l="en">All projects</span><span data-l="pt">Todos os projetos</span></a>
+      <span class="tag">RPA · v1.0.12 · <span data-l="en">Case study</span><span data-l="pt">Estudo de caso</span></span>
+      <h1>Alphaneo</h1>
+      <p class="lead" style="margin-top:18px" data-l="en">A Windows desktop robot that bulk-closes preventive, corrective and patrol work orders in a third-party web maintenance system (CMMS), and keeps itself up to date.</p>
+      <p class="lead" style="margin-top:18px" data-l="pt">Um robô desktop para Windows que dá baixa em lote em ordens preventivas, corretivas e de ronda num sistema web de manutenção de terceiros (CMMS), e se mantém atualizado sozinho.</p>
+      <div class="meta">
+        <div><small><span data-l="en">Role</span><span data-l="pt">Papel</span></small><span data-l="en">Sole developer</span><span data-l="pt">Desenvolvedor único</span></div>
+        <div><small><span data-l="en">Version</span><span data-l="pt">Versão</span></small><span>1.0.12</span></div>
+        <div><small><span data-l="en">Codebase</span><span data-l="pt">Código</span></small><span data-l="en">~14k lines of Python</span><span data-l="pt">~14 mil linhas de Python</span></div>
+        <div><small>Stack</small><span>Python · Selenium · WebView2</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:8px">
+    <div class="wrap">
+      <figure class="fig rv">
+        <div class="frame"><div class="chrome"><i></i><i></i><i></i></div><img src="../assets/shots/alphaneo.webp" alt="Alphaneo desktop interface (sample data)"></div>
+        <figcaption><span data-l="en">The desktop interface. Client system and technician names replaced with sample data.</span><span data-l="pt">A interface desktop. Sistema do cliente e nomes de técnicos trocados por dados fictícios.</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap prose">
+      <div class="eyebrow"><span data-l="en">The problem</span><span data-l="pt">O problema</span></div>
+      <h2 data-l="en">The same form, hundreds of times a month.</h2>
+      <h2 data-l="pt">O mesmo formulário, centenas de vezes por mês.</h2>
+      <p data-l="en">Every completed work order had to be closed by hand in the client's web system: open it, pick the technician, fill dates and service text, save, repeat. It ate hours of the operations team's week and was easy to get wrong.</p>
+      <p data-l="pt">Cada ordem concluída tinha que ser baixada à mão no sistema web do cliente: abrir, escolher o técnico, preencher datas e texto do serviço, salvar, repetir. Isso consumia horas da semana da equipe de operação e era fácil de errar.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow"><span data-l="en">How it's built</span><span data-l="pt">Como foi construído</span></div>
+      <h2 data-l="en">A desktop app that never freezes and updates itself.</h2>
+      <h2 data-l="pt">Um app desktop que nunca trava e se atualiza sozinho.</h2>
+      <div class="grid2">
+        <div class="card rv"><h4 data-l="en">⚙️ Worker process</h4><h4 data-l="pt">⚙️ Processo separado</h4><p data-l="en">The bot runs in its own process, so the UI stays responsive. UI and bot talk through lightweight file-based messages, and credentials are never written to disk.</p><p data-l="pt">O robô roda no próprio processo, então a interface continua responsiva. Interface e robô conversam por mensagens leves em arquivo, e as credenciais nunca vão para o disco.</p></div>
+        <div class="card rv"><h4 data-l="en">🎨 Tkinter → WebView2</h4><h4 data-l="pt">🎨 Tkinter → WebView2</h4><p data-l="en">The UI was rebuilt in HTML/CSS/JS on pywebview (WebView2), with smooth GPU-rendered animations instead of a laggy Tk loop.</p><p data-l="pt">A interface foi refeita em HTML/CSS/JS com pywebview (WebView2), com animações suaves na GPU no lugar do loop travado do Tk.</p></div>
+        <div class="card rv"><h4 data-l="en">🔄 Self-updating</h4><h4 data-l="pt">🔄 Auto-atualização</h4><p data-l="en">On start, the app checks the GitHub Releases API, compares versions, downloads the new installer and runs it silently. Users never install anything by hand.</p><p data-l="pt">Ao abrir, o app consulta a API de Releases do GitHub, compara versões, baixa o instalador novo e roda em silêncio. Ninguém instala nada à mão.</p></div>
+        <div class="card rv"><h4 data-l="en">🚀 One-command release</h4><h4 data-l="pt">🚀 Release com um comando</h4><p data-l="en">A script bumps the version, builds the .exe with PyInstaller, compiles the Inno Setup installer, commits to the private source repo and publishes the public release.</p><p data-l="pt">Um script sobe a versão, gera o .exe com PyInstaller, compila o instalador Inno Setup, faz commit no repositório privado e publica o release público.</p></div>
+      </div>
+      <div style="margin-top:28px" class="chips">
+        <span class="chip">Python</span><span class="chip">Selenium 4</span><span class="chip">pywebview</span><span class="chip">WebView2</span><span class="chip">Tkinter (legacy)</span><span class="chip">PyInstaller</span><span class="chip">Inno Setup</span><span class="chip">GitHub Releases API</span>
+      </div>
+      <div class="cta" style="margin-top:28px"><a href="https://github.com/Sharkvlr/alphaneo" target="_blank" rel="noopener" class="btn ghost"><span data-l="en">Project page on GitHub ↗</span><span data-l="pt">Página do projeto no GitHub ↗</span></a></div>
+      <p class="note" data-l="en">Source code is private; the GitHub page hosts the installer and releases.</p>
+      <p class="note" data-l="pt">O código é privado; a página no GitHub hospeda o instalador e os releases.</p>
+      <div style="margin-top:48px">
+        <a href="../alphatasker/" class="next"><span><small style="color:var(--faint);font-weight:700"><span data-l="en">Next project</span><span data-l="pt">Próximo projeto</span></small><br><b style="font-size:1.3rem">Alphatasker</b></span><span style="font-size:1.6rem">→</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">© 2026 Gabriel Adley Fernandes · <a href="../">sharkvlr.github.io</a></div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

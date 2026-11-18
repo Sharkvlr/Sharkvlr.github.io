@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alphatherm Atendimento — Case study · Gabriel Adley Fernandes</title>
+<meta name="description" content="Case study: an offline-first field-service PWA built and maintained by Gabriel Adley Fernandes.">
+<script>try{document.documentElement.setAttribute('data-lang',localStorage.getItem('lang')||'en')}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>.phones{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:28px}.phones .phone{width:100%;max-width:none;margin:0;border-radius:30px;border-bottom:6px solid #1c2436}@media(max-width:760px){.phones{grid-template-columns:1fr 1fr}}</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><span class="mark">GA</span>Gabriel Adley</a>
+    <nav class="nav-links">
+      <a href="../#work"><span data-l="en">Work</span><span data-l="pt">Projetos</span></a>
+      <a href="../#contact"><span data-l="en">Contact</span><span data-l="pt">Contato</span></a>
+      <span class="lang"><button data-lang="en">EN</button><button data-lang="pt">PT</button></span>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="cs-hero">
+    <div class="wrap">
+      <a href="../#work" class="back">← <span data-l="en">All projects</span><span data-l="pt">Todos os projetos</span></a>
+      <span class="tag live">● <span data-l="en">In production · Case study</span><span data-l="pt">Em produção · Estudo de caso</span></span>
+      <h1>Alphatherm Atendimento</h1>
+      <p class="lead" style="margin-top:18px" data-l="en">An offline-first PWA that took field technicians off paper forms, a 3,700-row spreadsheet and Word documents, and later became the ERP's field-service module.</p>
+      <p class="lead" style="margin-top:18px" data-l="pt">Um PWA offline-first que tirou os técnicos de campo dos formulários, de uma planilha de 3.700 linhas e de documentos Word, e depois virou o módulo de campo do ERP.</p>
+      <div class="meta">
+        <div><small><span data-l="en">Role</span><span data-l="pt">Papel</span></small><span data-l="en">Sole developer</span><span data-l="pt">Desenvolvedor único</span></div>
+        <div><small><span data-l="en">Timeline</span><span data-l="pt">Período</span></small><span data-l="en">May 2026 – now</span><span data-l="pt">Mai 2026 – hoje</span></div>
+        <div><small><span data-l="en">Users</span><span data-l="pt">Usuários</span></small><span data-l="en">Technicians &amp; office</span><span data-l="pt">Técnicos e escritório</span></div>
+        <div><small>Stack</small><span>React · Supabase · PWA</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:8px">
+    <div class="wrap">
+      <div class="phones">
+        <figure class="fig rv"><div class="phone"><img src="../assets/shots/atend-mobile.webp" alt="Technician home screen (sample data)"></div></figure>
+        <figure class="fig rv"><div class="phone"><img src="../assets/shots/atend-os.webp" alt="Service order list (sample data)"></div></figure>
+        <figure class="fig rv"><div class="phone"><img src="../assets/shots/atend-form.webp" alt="Service order form (sample data)"></div></figure>
+      </div>
+      <p class="note" data-l="en">All screenshots use fictitious sample data.</p>
+      <p class="note" data-l="pt">Todas as telas usam dados fictícios.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap prose">
+      <div class="eyebrow"><span data-l="en">The problem</span><span data-l="pt">O problema</span></div>
+      <h2 data-l="en">Service orders on paper, history in a spreadsheet.</h2>
+      <h2 data-l="pt">Ordens de serviço no papel, histórico numa planilha.</h2>
+      <p data-l="en">Technicians filled an online form, the office copied it into a giant spreadsheet, and reports were assembled by hand in Word. Information got lost between steps, approvals happened on WhatsApp, and in basements and machine rooms there was often no signal at all.</p>
+      <p data-l="pt">Os técnicos preenchiam um formulário online, o escritório copiava para uma planilha gigante e os relatórios eram montados à mão no Word. Informação se perdia no caminho, aprovações aconteciam no WhatsApp, e em subsolos e casas de máquinas muitas vezes não havia sinal.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow"><span data-l="en">What I built</span><span data-l="pt">O que eu construí</span></div>
+      <h2 data-l="en">One app from the field to the client's inbox.</h2>
+      <h2 data-l="pt">Um app do campo até o e-mail do cliente.</h2>
+      <div class="grid3">
+        <div class="card rv"><div class="ic">📶</div><h4 data-l="en">Works without signal</h4><h4 data-l="pt">Funciona sem sinal</h4><p data-l="en">An outbox queue stores every change locally and syncs when the connection returns. Drafts survive app restarts and a cache warmer preloads what the technician needs for the day.</p><p data-l="pt">Uma fila de envio guarda cada alteração no aparelho e sincroniza quando a conexão volta. Rascunhos sobrevivem ao fechar o app, e um aquecedor de cache pré-carrega o que o técnico precisa no dia.</p></div>
+        <div class="card rv"><div class="ic">📝</div><h4 data-l="en">Service orders end-to-end</h4><h4 data-l="pt">Ordem de serviço completa</h4><p data-l="en">Check-in with location, equipment, photos, client signature on screen and a PDF report generated on the device, then an approval flow for the office.</p><p data-l="pt">Check-in com localização, equipamentos, fotos, assinatura do cliente na tela e relatório em PDF gerado no aparelho, com fluxo de aprovação para o escritório.</p></div>
+        <div class="card rv"><div class="ic">🔐</div><h4 data-l="en">Roles enforced in the DB</h4><h4 data-l="pt">Perfis garantidos no banco</h4><p data-l="en">Technician, inspector, director and admin each see their own dashboard, and Row-Level Security makes sure the data follows the same rules.</p><p data-l="pt">Técnico, inspetor, diretor e admin veem cada um o seu painel, e o Row-Level Security garante que os dados sigam as mesmas regras.</p></div>
+        <div class="card rv"><div class="ic">📄</div><h4 data-l="en">Proposals &amp; quotes</h4><h4 data-l="pt">Propostas e orçamentos</h4><p data-l="en">Proposals with discounts and payment terms, sent by email as PDF, with amounts written out in words.</p><p data-l="pt">Propostas com desconto e condições de pagamento, enviadas por e-mail em PDF, com valores por extenso.</p></div>
+        <div class="card rv"><div class="ic">🔔</div><h4 data-l="en">Push &amp; agenda</h4><h4 data-l="pt">Push e agenda</h4><p data-l="en">Push notifications for new orders and check-ins, plus an agenda with reminders.</p><p data-l="pt">Notificações push de novas ordens e check-ins, e uma agenda com lembretes.</p></div>
+        <div class="card rv"><div class="ic">🔄</div><h4 data-l="en">Accounting sync</h4><h4 data-l="pt">Sincronia contábil</h4><p data-l="en">Serverless functions sync receivables and products with the company's cloud accounting platform via OAuth, on a schedule.</p><p data-l="pt">Funções serverless sincronizam recebíveis e produtos com a plataforma contábil da empresa via OAuth, de forma agendada.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="nums">
+        <div class="card"><div class="num">3,700<b>+</b></div><p data-l="en">legacy records imported</p><p data-l="pt">registros antigos importados</p></div>
+        <div class="card"><div class="num">74</div><p data-l="en">SQL migrations with RLS</p><p data-l="pt">migrations SQL com RLS</p></div>
+        <div class="card"><div class="num">12</div><p data-l="en">serverless functions</p><p data-l="pt">funções serverless</p></div>
+        <div class="card"><div class="num">190<b>+</b></div><p data-l="en">commits before joining the ERP</p><p data-l="pt">commits antes de virar módulo do ERP</p></div>
+      </div>
+      <div style="margin-top:28px" class="chips">
+        <span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Vite</span><span class="chip">TanStack Query (persisted)</span><span class="chip">react-hook-form + zod</span><span class="chip">Tailwind</span><span class="chip">shadcn/ui</span><span class="chip">Supabase</span><span class="chip">PostgreSQL</span><span class="chip">jsPDF</span><span class="chip">vite-plugin-pwa</span><span class="chip">Vitest</span>
+      </div>
+      <p class="note" data-l="en">The source code belongs to the company and is private.</p>
+      <p class="note" data-l="pt">O código pertence à empresa e é privado.</p>
+      <div style="margin-top:48px">
+        <a href="../alphaneo/" class="next"><span><small style="color:var(--faint);font-weight:700"><span data-l="en">Next project</span><span data-l="pt">Próximo projeto</span></small><br><b style="font-size:1.3rem">Alphaneo</b></span><span style="font-size:1.6rem">→</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">© 2026 Gabriel Adley Fernandes · <a href="../">sharkvlr.github.io</a></div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

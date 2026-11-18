@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alphatherm ERP — Case study · Gabriel Adley Fernandes</title>
+<meta name="description" content="Case study: a company-wide ERP with 15+ modules, built and maintained by Gabriel Adley Fernandes.">
+<script>try{document.documentElement.setAttribute('data-lang',localStorage.getItem('lang')||'en')}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><span class="mark">GA</span>Gabriel Adley</a>
+    <nav class="nav-links">
+      <a href="../#work"><span data-l="en">Work</span><span data-l="pt">Projetos</span></a>
+      <a href="../#contact"><span data-l="en">Contact</span><span data-l="pt">Contato</span></a>
+      <span class="lang"><button data-lang="en">EN</button><button data-lang="pt">PT</button></span>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="cs-hero">
+    <div class="wrap">
+      <a href="../#work" class="back">← <span data-l="en">All projects</span><span data-l="pt">Todos os projetos</span></a>
+      <span class="tag live">● <span data-l="en">In production · Case study</span><span data-l="pt">Em produção · Estudo de caso</span></span>
+      <h1>Alphatherm ERP</h1>
+      <p class="lead" style="margin-top:18px" data-l="en">One system that replaced spreadsheets and disconnected tools across a group of three companies, used every day by finance, HR, sales, field teams and the board.</p>
+      <p class="lead" style="margin-top:18px" data-l="pt">Um único sistema que substituiu planilhas e ferramentas soltas num grupo de três empresas, usado todo dia por financeiro, RH, comercial, equipes de campo e diretoria.</p>
+      <div class="meta">
+        <div><small><span data-l="en">Role</span><span data-l="pt">Papel</span></small><span data-l="en">Sole developer</span><span data-l="pt">Desenvolvedor único</span></div>
+        <div><small><span data-l="en">Timeline</span><span data-l="pt">Período</span></small><span data-l="en">Jun 2026 – now</span><span data-l="pt">Jun 2026 – hoje</span></div>
+        <div><small><span data-l="en">Users</span><span data-l="pt">Usuários</span></small><span data-l="en">Whole company, 3 firms</span><span data-l="pt">Empresa toda, 3 firmas</span></div>
+        <div><small>Stack</small><span>React · PostgreSQL · Supabase</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:8px">
+    <div class="wrap">
+      <figure class="fig rv">
+        <div class="frame"><div class="chrome"><i></i><i></i><i></i></div><img src="../assets/shots/erp-home.webp" alt="ERP home screen with quick actions and modules (sample data)"></div>
+        <figcaption><span data-l="en">Home: quick actions and every module in one place. All screenshots use fictitious sample data.</span><span data-l="pt">Início: atalhos e todos os módulos num lugar só. Todas as telas usam dados fictícios.</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="nums">
+        <div class="card"><div class="num">15<b>+</b></div><p data-l="en">business modules</p><p data-l="pt">módulos de negócio</p></div>
+        <div class="card"><div class="num">4,300<b>+</b></div><p data-l="en">commits in under 6 months</p><p data-l="pt">commits em menos de 6 meses</p></div>
+        <div class="card"><div class="num">~575</div><p data-l="en">database tables</p><p data-l="pt">tabelas no banco</p></div>
+        <div class="card"><div class="num">~9,000</div><p data-l="en">automated tests</p><p data-l="pt">testes automatizados</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap prose">
+      <div class="eyebrow"><span data-l="en">The problem</span><span data-l="pt">O problema</span></div>
+      <h2 data-l="en">A growing company running on spreadsheets.</h2>
+      <h2 data-l="pt">Uma empresa crescendo em cima de planilhas.</h2>
+      <p data-l="en">Payroll was checked by hand against the accountant's numbers. Payments were reconciled line by line from bank statements. Inventory, purchasing, sales proposals and construction projects each lived in a different spreadsheet or tool, and nobody had one picture of the business.</p>
+      <p data-l="pt">A folha era conferida à mão contra os números do contador. Os pagamentos eram conciliados linha a linha a partir dos extratos. Estoque, compras, propostas e obras viviam cada um numa planilha ou ferramenta diferente, e ninguém tinha uma visão única da empresa.</p>
+      <p data-l="en"><strong>Errors here cost real money:</strong> a wrong payroll line is a person paid the wrong amount. The system had to be correct, auditable and safe, and it had to be adopted by people who were used to Excel.</p>
+      <p data-l="pt"><strong>Erro aqui custa dinheiro de verdade:</strong> uma linha errada na folha é uma pessoa recebendo o valor errado. O sistema precisava ser correto, auditável e seguro, e ser adotado por gente acostumada com Excel.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow"><span data-l="en">What I built</span><span data-l="pt">O que eu construí</span></div>
+      <h2 data-l="en">15+ modules, one database, one login.</h2>
+      <h2 data-l="pt">15+ módulos, um banco, um login.</h2>
+      <div class="grid3">
+        <div class="card rv"><div class="ic">💰</div><h4 data-l="en">Finance &amp; billing</h4><h4 data-l="pt">Financeiro e faturamento</h4><p data-l="en">Payables and receivables, a "pay today" alarm, bank reconciliation with learned rules, recurring contracts and automatic invoice delivery.</p><p data-l="pt">Contas a pagar e receber, alarme de "pagar hoje", conciliação bancária com regras aprendidas, contratos recorrentes e envio automático de notas.</p></div>
+        <div class="card rv"><div class="ic">👥</div><h4 data-l="en">HR &amp; payroll</h4><h4 data-l="pt">RH e folha</h4><p data-l="en">Payroll with current tax tables, vacations, severance, overtime and hour bank, plus a payment audit that reads statements from several banks.</p><p data-l="pt">Folha com tabelas fiscais vigentes, férias, rescisão, horas extras e banco de horas, mais auditoria de pagamentos lendo extratos de vários bancos.</p></div>
+        <div class="card rv"><div class="ic">📈</div><h4 data-l="en">Sales &amp; quoting</h4><h4 data-l="pt">Comercial e orçamentos</h4><p data-l="en">CRM pipeline with goals, partner commissions, Word proposals and quoting engines for HVAC and ductwork projects.</p><p data-l="pt">Funil de CRM com metas, comissões de parceiros, propostas em Word e motores de orçamento para climatização e dutos.</p></div>
+        <div class="card rv"><div class="ic">🏗️</div><h4 data-l="en">Projects &amp; construction</h4><h4 data-l="pt">Obras</h4><p data-l="en">Gantt with baseline and S-curve, a 10-week staffing planner, daily site reports with photos and project results (sold vs. spent).</p><p data-l="pt">Gantt com linha de base e curva S, planejador de equipes de 10 semanas, diário de obra com fotos e resultado da obra (vendido x gasto).</p></div>
+        <div class="card rv"><div class="ic">📦</div><h4 data-l="en">Inventory &amp; purchasing</h4><h4 data-l="pt">Estoque e compras</h4><p data-l="en">Stock that can never go negative (enforced in the DB), weighted average cost, invoice XML receipt, landed cost and supplier performance.</p><p data-l="pt">Estoque que nunca fica negativo (garantido no banco), custo médio ponderado, entrada por XML da nota, custo real e desempenho de fornecedores.</p></div>
+        <div class="card rv"><div class="ic">🛠️</div><h4 data-l="en">Field service &amp; maintenance</h4><h4 data-l="pt">Campo e manutenção</h4><p data-l="en">The offline field app as a module, maintenance contracts with preventive schedules, and QR-code service requests without login.</p><p data-l="pt">O app de campo offline como módulo, contratos de manutenção com preventivas e chamados por QR code sem login.</p></div>
+      </div>
+      <p class="note" data-l="en">Also: tax control, accounting reports, occupational health, PPE, fleet, meetings with live captions, a demands desk and an executive portal.</p>
+      <p class="note" data-l="pt">Também: controle fiscal, relatórios contábeis, saúde ocupacional, EPIs, frota, reuniões com legenda ao vivo, central de demandas e portal da diretoria.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow"><span data-l="en">Screens</span><span data-l="pt">Telas</span></div>
+      <h2 data-l="en">Built for people who live in Excel.</h2>
+      <h2 data-l="pt">Feito para quem vive no Excel.</h2>
+      <p class="lead" data-l="en">Every table has Excel-style filters, every money field behaves like a spreadsheet, and everything updates live when a colleague changes something.</p>
+      <p class="lead" data-l="pt">Toda tabela tem filtro estilo Excel, todo campo de dinheiro se comporta como planilha, e tudo atualiza ao vivo quando um colega muda algo.</p>
+      <div class="grid2" id="gallery">
+        <figure class="fig rv"><div class="frame"><img src="../assets/shots/erp-finance.webp" alt="Finance module with sample data" loading="lazy"></div><figcaption><span data-l="en">Finance</span><span data-l="pt">Financeiro</span></figcaption></figure>
+        <figure class="fig rv"><div class="frame"><img src="../assets/shots/erp-hr.webp" alt="HR module with sample data" loading="lazy"></div><figcaption><span data-l="en">HR &amp; payroll</span><span data-l="pt">RH e folha</span></figcaption></figure>
+        
+        <figure class="fig rv" style="grid-column:1/-1"><div class="frame"><img src="../assets/shots/erp-stock.webp" alt="Inventory module with sample data" loading="lazy"></div><figcaption><span data-l="en">Inventory</span><span data-l="pt">Estoque</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow"><span data-l="en">Architecture</span><span data-l="pt">Arquitetura</span></div>
+      <h2 data-l="en">Security lives in the database.</h2>
+      <h2 data-l="pt">A segurança mora no banco.</h2>
+      <p class="lead" data-l="en">The browser talks straight to PostgreSQL through Supabase, so every rule is enforced by the database itself, not by the UI.</p>
+      <p class="lead" data-l="pt">O navegador fala direto com o PostgreSQL pelo Supabase, então toda regra é garantida pelo próprio banco, não pela interface.</p>
+      <div class="arch rv">
+        <svg viewBox="0 0 960 360" role="img" aria-labelledby="archT">
+          <title id="archT">Architecture: React app, PostgreSQL with RLS, edge functions, scheduled jobs and integrations</title>
+          <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#647089"/></marker></defs>
+          <g font-family="Manrope,sans-serif" font-size="14" fill="#eef1f7">
+            <rect x="20" y="40" width="210" height="120" rx="16" fill="#141b2c" stroke="#2a3550"/>
+            <text x="40" y="72" font-weight="800">React 19 SPA / PWA</text>
+            <text x="40" y="96" fill="#97a2b8" font-size="12.5">TypeScript · TanStack Query</text>
+            <text x="40" y="118" fill="#97a2b8" font-size="12.5">Realtime · offline outbox</text>
+            <text x="40" y="140" fill="#97a2b8" font-size="12.5">PDF · Word · Excel · OCR</text>
+
+            <rect x="20" y="210" width="210" height="110" rx="16" fill="#141b2c" stroke="#2a3550"/>
+            <text x="40" y="242" font-weight="800">Desktop &amp; RPA robots</text>
+            <text x="40" y="266" fill="#97a2b8" font-size="12.5">Browser automation</text>
+            <text x="40" y="288" fill="#97a2b8" font-size="12.5">Failover between machines</text>
+
+            <rect x="330" y="40" width="300" height="280" rx="18" fill="#1a1410" stroke="#ff7a1a"/>
+            <text x="352" y="74" font-weight="800" fill="#ffb36b">PostgreSQL (Supabase)</text>
+            <text x="352" y="104" fill="#e9d6c6" font-size="13">~575 tables · 1,600+ SQL functions</text>
+            <text x="352" y="130" fill="#e9d6c6" font-size="13">Row-Level Security on every table</text>
+            <text x="352" y="156" fill="#e9d6c6" font-size="13">Role + per-user module permissions</text>
+            <text x="352" y="182" fill="#e9d6c6" font-size="13">Event trigger applies policies</text>
+            <text x="352" y="200" fill="#e9d6c6" font-size="13">to every new table</text>
+            <text x="352" y="226" fill="#e9d6c6" font-size="13">Triggers keep money &amp; stock consistent</text>
+            <text x="352" y="252" fill="#e9d6c6" font-size="13">Auth · Realtime · private Storage</text>
+            <text x="352" y="290" fill="#ffb36b" font-size="12.5" font-family="JetBrains Mono,monospace">900+ idempotent migrations</text>
+
+            <rect x="730" y="40" width="210" height="120" rx="16" fill="#141b2c" stroke="#2a3550"/>
+            <text x="750" y="72" font-weight="800">Edge Functions</text>
+            <text x="750" y="96" fill="#97a2b8" font-size="12.5">80+ (Deno / TypeScript)</text>
+            <text x="750" y="118" fill="#97a2b8" font-size="12.5">90 scheduled jobs (pg_cron)</text>
+            <text x="750" y="140" fill="#97a2b8" font-size="12.5">LLM &amp; document AI</text>
+
+            <rect x="730" y="210" width="210" height="110" rx="16" fill="#141b2c" stroke="#2a3550"/>
+            <text x="750" y="242" font-weight="800">Integrations</text>
+            <text x="750" y="266" fill="#97a2b8" font-size="12.5">Accounting (OAuth) · NFS-e</text>
+            <text x="750" y="288" fill="#97a2b8" font-size="12.5">Banks · time clock · email</text>
+            <text x="750" y="308" fill="#97a2b8" font-size="12.5">WhatsApp · Web Push</text>
+          </g>
+          <g stroke="#647089" stroke-width="1.6" fill="none" marker-end="url(#ar)">
+            <path d="M230 100 H326"/><path d="M230 265 H326"/>
+            <path d="M630 100 H726"/><path d="M835 160 V206"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow"><span data-l="en">Engineering highlights</span><span data-l="pt">Destaques de engenharia</span></div>
+      <h2 data-l="en">The hard parts.</h2><h2 data-l="pt">As partes difíceis.</h2>
+      <div class="grid2">
+        <div class="card rv"><h4 data-l="en">🔐 Access control that can't be forgotten</h4><h4 data-l="pt">🔐 Controle de acesso que não dá para esquecer</h4><p data-l="en">Roles have default modules and each user can get extra ones. The database enforces the same model with RLS helper functions, so field roles can see a construction project but never its money columns. A DDL event trigger adds the right policy to every new table automatically.</p><p data-l="pt">Cargos têm módulos padrão e cada usuário pode ganhar extras. O banco garante o mesmo modelo com funções de RLS, então quem é de campo vê a obra mas nunca as colunas de dinheiro. Um event trigger de DDL coloca a política certa em toda tabela nova sozinho.</p></div>
+        <div class="card rv"><h4 data-l="en">🧪 Database tests without a server</h4><h4 data-l="pt">🧪 Testes de banco sem servidor</h4><p data-l="en">270+ tests load the real migrations into an in-process Postgres (PGlite) with an auth emulation and check RLS, RPCs and triggers. Together with ~8,700 front-end tests, they run before every push.</p><p data-l="pt">270+ testes carregam as migrations reais num Postgres embutido (PGlite) com emulação de autenticação e conferem RLS, RPCs e triggers. Junto com ~8.700 testes de front-end, rodam antes de cada push.</p></div>
+        <div class="card rv"><h4 data-l="en">🏦 Reconciliation and payment audit</h4><h4 data-l="pt">🏦 Conciliação e auditoria de pagamentos</h4><p data-l="en">Parsers for statements from several Brazilian banks (PDF, OFX and photo with OCR), a name-plus-amount matching engine, learned rules, duplicate-payment alerts and a sync queue to the accounting platform with one single write path.</p><p data-l="pt">Leitores de extrato de vários bancos (PDF, OFX e foto com OCR), motor de cruzamento por nome e valor, regras aprendidas, alerta de pagamento duplicado e fila de sincronização com a plataforma contábil por um único caminho de escrita.</p></div>
+        <div class="card rv"><h4 data-l="en">🤖 Document AI with guardrails</h4><h4 data-l="pt">🤖 IA de documentos com limites</h4><p data-l="en">OCR and PDF extraction run in the browser, then an LLM turns the text into structured data: invoices, statements, card bills, fuel receipts. Agents use tools under the caller's own permissions, with spend caps, an audit log and human approval for real actions.</p><p data-l="pt">OCR e leitura de PDF rodam no navegador, e um LLM transforma o texto em dados: notas, extratos, faturas de cartão, cupons de combustível. Os agentes usam ferramentas com as permissões de quem pediu, com teto de gasto, log de auditoria e aprovação humana para ações reais.</p></div>
+        <div class="card rv"><h4 data-l="en">⚡ Realtime everywhere</h4><h4 data-l="pt">⚡ Tempo real em tudo</h4><p data-l="en">One reusable live-update engine across all modules, so two people never work on stale data. Open tabs also detect a new deploy and reload themselves.</p><p data-l="pt">Um motor de atualização ao vivo reaproveitado em todos os módulos, para ninguém trabalhar com dado velho. As abas abertas também detectam um deploy novo e se recarregam sozinhas.</p></div>
+        <div class="card rv"><h4 data-l="en">🧮 Domain engines</h4><h4 data-l="pt">🧮 Motores de domínio</h4><p data-l="en">Payroll with current tax tables, HVAC quoting calibrated on real projects, a Gantt with critical path and S-curve, a staffing capacity planner and an inventory with landed cost.</p><p data-l="pt">Folha com tabelas fiscais vigentes, orçamento de climatização calibrado com obras reais, Gantt com caminho crítico e curva S, planejador de capacidade de equipes e estoque com custo real.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">Stack</div>
+      <div class="chips">
+        <span class="chip">React 19</span><span class="chip">TypeScript</span><span class="chip">Vite</span><span class="chip">TanStack Query</span><span class="chip">React Router</span><span class="chip">Tailwind</span><span class="chip">Radix UI</span><span class="chip">PostgreSQL</span><span class="chip">Supabase</span><span class="chip">Deno Edge Functions</span><span class="chip">pg_cron</span><span class="chip">Vitest</span><span class="chip">PGlite</span><span class="chip">Testing Library</span><span class="chip">tesseract.js</span><span class="chip">pdf.js</span><span class="chip">Recharts</span><span class="chip">Leaflet</span><span class="chip">Vercel</span>
+      </div>
+      <p class="note" data-l="en">The source code belongs to the company and is private.</p>
+      <p class="note" data-l="pt">O código pertence à empresa e é privado.</p>
+      <div style="margin-top:48px">
+        <a href="../atendimento/" class="next"><span><small style="color:var(--faint);font-weight:700"><span data-l="en">Next project</span><span data-l="pt">Próximo projeto</span></small><br><b style="font-size:1.3rem">Alphatherm Atendimento</b></span><span style="font-size:1.6rem">→</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">© 2026 Gabriel Adley Fernandes · <a href="../">sharkvlr.github.io</a></div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

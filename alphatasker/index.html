@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alphatasker — Case study · Gabriel Adley Fernandes</title>
+<meta name="description" content="Case study: a Python RPA bot that creates work orders in bulk with scheduling rules.">
+<script>try{document.documentElement.setAttribute('data-lang',localStorage.getItem('lang')||'en')}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><span class="mark">GA</span>Gabriel Adley</a>
+    <nav class="nav-links">
+      <a href="../#work"><span data-l="en">Work</span><span data-l="pt">Projetos</span></a>
+      <a href="../#contact"><span data-l="en">Contact</span><span data-l="pt">Contato</span></a>
+      <span class="lang"><button data-lang="en">EN</button><button data-lang="pt">PT</button></span>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="cs-hero">
+    <div class="wrap">
+      <a href="../#work" class="back">← <span data-l="en">All projects</span><span data-l="pt">Todos os projetos</span></a>
+      <span class="tag">RPA · v0.3.8 · <span data-l="en">Case study</span><span data-l="pt">Estudo de caso</span></span>
+      <h1>Alphatasker</h1>
+      <p class="lead" style="margin-top:18px" data-l="en">A Windows desktop robot that turns a long, repetitive web form into a spreadsheet-style grid and one button: it creates dozens of work orders in a single run, spacing their start times automatically.</p>
+      <p class="lead" style="margin-top:18px" data-l="pt">Um robô desktop para Windows que transforma um formulário web longo e repetitivo numa grade estilo planilha e um botão: abre dezenas de ordens de serviço de uma vez, espaçando os horários sozinho.</p>
+      <div class="meta">
+        <div><small><span data-l="en">Role</span><span data-l="pt">Papel</span></small><span data-l="en">Sole developer</span><span data-l="pt">Desenvolvedor único</span></div>
+        <div><small><span data-l="en">Version</span><span data-l="pt">Versão</span></small><span>0.3.8</span></div>
+        <div><small><span data-l="en">Codebase</span><span data-l="pt">Código</span></small><span data-l="en">~6k lines of Python</span><span data-l="pt">~6 mil linhas de Python</span></div>
+        <div><small>Stack</small><span>Python · Selenium · WebView2</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:8px">
+    <div class="wrap">
+      <figure class="fig rv">
+        <div class="frame"><div class="chrome"><i></i><i></i><i></i></div><img src="../assets/shots/alphatasker.webp" alt="Alphatasker desktop interface (sample data)"></div>
+        <figcaption><span data-l="en">Batch grid with sector autocomplete. Client system and sectors replaced with sample data.</span><span data-l="pt">Grade do lote com autocompletar de setor. Sistema do cliente e setores trocados por dados fictícios.</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap prose">
+      <div class="eyebrow"><span data-l="en">The problem</span><span data-l="pt">O problema</span></div>
+      <h2 data-l="en">Opening orders one by one, timing them by hand.</h2>
+      <h2 data-l="pt">Abrir ordens uma a uma e calcular horário na mão.</h2>
+      <p data-l="en">Each work order meant filling the same long form in a web system: sector, occurrence, cause, type, date and start time. Start times had to follow rules per order type, calculated in the operator's head. A day's batch took a long time and mistakes were common.</p>
+      <p data-l="pt">Cada ordem significava preencher o mesmo formulário longo num sistema web: setor, ocorrência, causa, tipo, data e horário. Os horários seguiam regras por tipo de ordem, calculadas de cabeça. O lote do dia demorava e errar era comum.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow"><span data-l="en">What I built</span><span data-l="pt">O que eu construí</span></div>
+      <h2 data-l="en">Fill a grid, click once.</h2>
+      <h2 data-l="pt">Preencha a grade, clique uma vez.</h2>
+      <div class="grid3">
+        <div class="card rv"><div class="ic">🧾</div><h4 data-l="en">Spreadsheet-style grid</h4><h4 data-l="pt">Grade estilo planilha</h4><p data-l="en">Accent-insensitive autocomplete over 500+ sectors, pickers for occurrence, cause and type, and a new row that appears as you finish the last one.</p><p data-l="pt">Autocompletar sem acento em mais de 500 setores, seletores de ocorrência, causa e tipo, e uma linha nova que aparece quando você termina a anterior.</p></div>
+        <div class="card rv"><div class="ic">⏱️</div><h4 data-l="en">Scheduling rules</h4><h4 data-l="pt">Regras de horário</h4><p data-l="en">The first order of each day starts at 08:00 and the next start time is spaced automatically by order type.</p><p data-l="pt">A primeira ordem de cada dia começa às 08:00, e o horário seguinte é espaçado sozinho conforme o tipo da ordem.</p></div>
+        <div class="card rv"><div class="ic">📺</div><h4 data-l="en">Live monitor</h4><h4 data-l="pt">Monitor ao vivo</h4><p data-l="en">Progress for every order, with pause, restart and stop, while the browser runs visibly so the operator can follow along.</p><p data-l="pt">Progresso de cada ordem, com pausar, reiniciar e parar, com o navegador visível para o operador acompanhar.</p></div>
+        <div class="card rv"><div class="ic">🧩</div><h4 data-l="en">Own driver resolver</h4><h4 data-l="pt">Resolvedor de driver próprio</h4><p data-l="en">Detects the installed Edge version, downloads the matching driver and caches it, with fallbacks, so browser updates never break the bot.</p><p data-l="pt">Detecta a versão do Edge instalado, baixa o driver correspondente e guarda em cache, com alternativas, para atualização do navegador nunca quebrar o robô.</p></div>
+        <div class="card rv"><div class="ic">🏗️</div><h4 data-l="en">Orchestrator + worker</h4><h4 data-l="pt">Orquestrador + worker</h4><p data-l="en">The bot runs apart from the UI, which talks to it through a JS ↔ Python bridge. The WebView2 runtime ships inside the installer.</p><p data-l="pt">O robô roda separado da interface, que conversa com ele por uma ponte JS ↔ Python. O runtime do WebView2 vai junto no instalador.</p></div>
+        <div class="card rv"><div class="ic">🔒</div><h4 data-l="en">Encrypted credentials</h4><h4 data-l="pt">Credenciais criptografadas</h4><p data-l="en">Login data is encrypted locally and typed only once. Same auto-update and release pipeline as Alphaneo.</p><p data-l="pt">O login fica criptografado no computador e é digitado uma vez só. Mesmo pipeline de auto-atualização e release do Alphaneo.</p></div>
+      </div>
+      <div style="margin-top:28px" class="chips">
+        <span class="chip">Python</span><span class="chip">Selenium 4</span><span class="chip">pywebview</span><span class="chip">WebView2</span><span class="chip">PyInstaller</span><span class="chip">Inno Setup</span><span class="chip">GitHub Releases API</span>
+      </div>
+      <div class="cta" style="margin-top:28px"><a href="https://github.com/Sharkvlr/alphatasker" target="_blank" rel="noopener" class="btn ghost"><span data-l="en">Project page on GitHub ↗</span><span data-l="pt">Página do projeto no GitHub ↗</span></a></div>
+      <p class="note" data-l="en">Source code is private; the GitHub page hosts the installer and releases.</p>
+      <p class="note" data-l="pt">O código é privado; a página no GitHub hospeda o instalador e os releases.</p>
+      <div style="margin-top:48px">
+        <a href="../erp/" class="next"><span><small style="color:var(--faint);font-weight:700"><span data-l="en">Back to the flagship</span><span data-l="pt">Voltar ao principal</span></small><br><b style="font-size:1.3rem">Alphatherm ERP</b></span><span style="font-size:1.6rem">→</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">© 2026 Gabriel Adley Fernandes · <a href="../">sharkvlr.github.io</a></div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>
